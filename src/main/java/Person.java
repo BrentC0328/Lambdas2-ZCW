@@ -1,15 +1,26 @@
 import java.time.LocalDate;
 
-public class Person {
+public class Person implements CheckPerson {
+
+    @Override
+    public boolean test(Person p) {
+        return false;
+    }
 
     public enum Sex {
-        MALE, FEMALE
+        MALE, FEMALE;
     }
 
     String name;
     int age;
-    Sex gender;
     String emailAddress;
+
+    public Person(String name, int age, String emailAddress) {
+        this.name = name;
+        this.age = age;
+        this.emailAddress = emailAddress;
+    }
+
 
     public int getAge() {
         return this.age;
@@ -20,7 +31,6 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", gender=" + gender +
                 ", emailAddress='" + emailAddress + '\'' +
                 '}';
     }
@@ -28,4 +38,5 @@ public class Person {
     public void printPerson(){
         System.out.println(this);
     }
+
 }

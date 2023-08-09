@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonList extends ArrayList<Person> implements CheckPerson{
+public class PersonList extends ArrayList<Person> {
 
 
     public static void printPersonsOlderThan(List<Person> roster, int age) {
@@ -21,17 +21,18 @@ public class PersonList extends ArrayList<Person> implements CheckPerson{
         }
     }
 
-    public static void printPersons(List<Person> roster, CheckPerson tester) {
+    public static void printPersons(List<Person> roster) {
         for (Person p : roster) {
-            if (tester.test(p)) {
+            if (p.getAge() > 21) {
                 p.printPerson();
             }
         }
     }
 
 
-    @Override
-    public boolean test(Person p) {
-        return p.getAge() == 21;
+
     }
-}
+
+
+
+
